@@ -1,11 +1,10 @@
 package core;
 
-;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
+import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 
@@ -24,7 +23,10 @@ public abstract class WebDriverTestBase {
 
     }
     @AfterClass
-    public void tearDown(){driver.quit();}
+    public void tearDown()
+    {
+        driver.quit();
+    }
 
 
 }
