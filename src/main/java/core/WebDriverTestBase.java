@@ -16,9 +16,12 @@ public abstract class WebDriverTestBase {
 
     @BeforeClass
     public void setUp(){
-        System.setProperty("webdriver.gecko.driver", "/home/vladimir/Selenium/src/test/resources/geckodriver");
+        System.setProperty("webdriver.gecko.driver",
+        WebDriverTestBase.class.getClassLoader().getResource("geckodriver").getPath());
          driver = new FirefoxDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().setScriptTimeout(60,TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     }

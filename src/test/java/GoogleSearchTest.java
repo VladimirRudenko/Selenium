@@ -7,6 +7,8 @@ import pages.ResultPage;
 import static org.junit.Assert.assertEquals;
 
 public class GoogleSearchTest extends WebDriverTestBase {
+    private String url = "https://www.google.com.ua/";
+    private String searchSelenium ;
 
 
     @Test
@@ -14,8 +16,8 @@ public class GoogleSearchTest extends WebDriverTestBase {
         GoogleSearchPage googleSearchPage = new GoogleSearchPage(driver);
         googleSearchPage.openURL("https://www.google.com.ua/");
         googleSearchPage.sendSearchData("Selenium");
-        ResultPage ResultPage = new ResultPage(driver);
-        assertEquals(ResultPage.findLink().getText().contains("Selenium"), true);
+        ResultPage resultPage = new ResultPage(driver);
+        assertEquals(resultPage.findLink().getText().contains("Selenium"), true);
     }
 
 
